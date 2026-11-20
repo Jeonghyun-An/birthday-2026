@@ -20,10 +20,6 @@
   - 요청마다 달라지는 데이터(DB 조회, `searchParams`, `new Date()`)는 `<Suspense>` 안의 async 컴포넌트에서 다루고, `new Date()` 전에는 `await connection()`(`next/server`)을 호출한다. 안 그러면 빌드 오류가 난다.
   - 막히면 `node_modules/next/dist/docs/01-app/`의 문서를 먼저 읽는다(`01-getting-started/08-caching.md`, `03-api-reference/04-functions/connection.md`, `02-guides/forms.md`).
 - `next dev`가 `AGENTS.md`를 만들거나 다시 쓴다. 그대로 커밋한다.
-- **커밋 메시지**는 모든 커밋에서 아래 형식을 쓴다.
-  ```bash
-  git commit -m "<메시지>" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
-  ```
 - 테스트는 `npm test`(= `vitest run`). 특정 파일만: `npx vitest run src/lib/dday.test.ts`.
 
 ## 파일 구조
@@ -150,7 +146,7 @@ Expected: 둘 다 오류 없이 끝난다.
 
 ```bash
 git add -A
-git commit -m "chore: scaffold Next.js 16 app with Vitest" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+git commit -m "chore: scaffold Next.js 16 app with Vitest"
 ```
 
 ---
@@ -322,7 +318,7 @@ Expected: 출력 없음(오류 없음).
 
 ```bash
 git add src/config
-git commit -m "feat: add princess config and script" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+git commit -m "feat: add princess config and script"
 ```
 
 ---
@@ -610,7 +606,7 @@ npm run dev
 
 ```bash
 git add -A
-git commit -m "feat: add royal pink theme, fonts and placeholder art" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+git commit -m "feat: add royal pink theme, fonts and placeholder art"
 ```
 
 ---
@@ -663,7 +659,7 @@ Expected: PASS (2 tests)
 
 ```bash
 git add src/lib/format.ts src/lib/format.test.ts
-git commit -m "feat: add won formatter" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+git commit -m "feat: add won formatter"
 ```
 
 ---
@@ -745,7 +741,7 @@ Expected: PASS (5 tests)
 
 ```bash
 git add src/lib/dday.ts src/lib/dday.test.ts
-git commit -m "feat: add KST-based D-day label" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+git commit -m "feat: add KST-based D-day label"
 ```
 
 ---
@@ -854,7 +850,7 @@ Expected: PASS (7 tests)
 
 ```bash
 git add src/lib/progress.ts src/lib/progress.test.ts
-git commit -m "feat: add progress calculation" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+git commit -m "feat: add progress calculation"
 ```
 
 ---
@@ -1055,7 +1051,7 @@ Expected: PASS (12 tests)
 
 ```bash
 git add src/lib/validation.ts src/lib/validation.test.ts
-git commit -m "feat: add contribution form validation" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+git commit -m "feat: add contribution form validation"
 ```
 
 ---
@@ -1196,7 +1192,7 @@ Expected: PASS (9 tests)
 
 ```bash
 git add src/lib/dialogue.ts src/lib/dialogue.test.ts
-git commit -m "feat: add dialogue state transitions" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+git commit -m "feat: add dialogue state transitions"
 ```
 
 ---
@@ -1259,7 +1255,7 @@ Expected: PASS (4 tests)
 
 ```bash
 git add src/lib/transfer.ts src/lib/transfer.test.ts
-git commit -m "feat: add toss transfer link builder" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+git commit -m "feat: add toss transfer link builder"
 ```
 
 ---
@@ -1391,7 +1387,7 @@ Expected: 오류 없음.
 
 ```bash
 git add src/lib/repo.ts src/lib/supabase-repo.ts supabase/schema.sql .env.example
-git commit -m "feat: add contribution repo backed by Supabase" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+git commit -m "feat: add contribution repo backed by Supabase"
 ```
 
 ---
@@ -1595,7 +1591,7 @@ Expected: 7개 파일 모두 PASS.
 
 ```bash
 git add src/app/give/submit.ts src/app/give/submit.test.ts
-git commit -m "feat: add contribution submit handler" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+git commit -m "feat: add contribution submit handler"
 ```
 
 ---
@@ -1830,7 +1826,7 @@ Expected: 오류 없음.
 
 ```bash
 git add src/app/give
-git commit -m "feat: add give page with server action form" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+git commit -m "feat: add give page with server action form"
 ```
 
 ---
@@ -1990,7 +1986,7 @@ Expected: 오류 없음.
 
 ```bash
 git add src/components/AccountCopy.tsx src/app/give/done
-git commit -m "feat: add transfer guide page with account copy" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+git commit -m "feat: add transfer guide page with account copy"
 ```
 
 ---
@@ -2205,7 +2201,7 @@ Expected: 오류 없음. (화면 확인은 Task 15에서 홈에 붙인 뒤 한�
 
 ```bash
 git add src/components/HorseProgress.tsx src/components/BenefactorList.tsx src/components/FundingSection.tsx
-git commit -m "feat: add funding section with white horse progress" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+git commit -m "feat: add funding section with white horse progress"
 ```
 
 ---
@@ -2497,7 +2493,7 @@ Expected: 모두 통과. 빌드 중 "Uncached data was accessed outside of <Susp
 
 ```bash
 git add -A
-git commit -m "feat: add cover, dialogue and home flow" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+git commit -m "feat: add cover, dialogue and home flow"
 ```
 
 ---
@@ -2613,7 +2609,7 @@ Expected: 오류 없음. 빌드 출력의 라우트 목록에 `/opengraph-image`
 
 ```bash
 git add assets src/app/opengraph-image.tsx
-git commit -m "feat: add Korean Open Graph image for link previews" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+git commit -m "feat: add Korean Open Graph image for link previews"
 ```
 
 ---
@@ -2779,7 +2775,7 @@ rose petals swirling around her, warm golden light.
 
 ```bash
 git add docs/image-prompts.md
-git commit -m "docs: add AI illustration prompts for the princess" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+git commit -m "docs: add AI illustration prompts for the princess"
 ```
 
 ---
@@ -2831,7 +2827,7 @@ npm run dev
 
 ```bash
 git add src/config/princess.ts public/images
-git commit -m "feat: fill in real princess details and illustrations" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+git commit -m "feat: fill in real princess details and illustrations"
 ```
 
 - [ ] **Step 4: GitHub에 올리기 (사용자 확인 후)**
