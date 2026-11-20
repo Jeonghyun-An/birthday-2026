@@ -18,9 +18,9 @@ async function loadCover(): Promise<string | null> {
   return `data:${mime};base64,${data.toString('base64')}`;
 }
 
-export default async function OpengraphImage() {
-  const cover = await loadCover();
+const cover = await loadCover();
 
+export default async function OpengraphImage() {
   return new ImageResponse(
     (
       <div
@@ -50,7 +50,7 @@ export default async function OpengraphImage() {
           }}
         >
           <div style={{ fontSize: 30, color: '#c9972e' }}>{script.cover.subtitle}</div>
-          <div style={{ marginTop: 24, fontSize: cover ? 50 : 62, lineHeight: 1.35, color: '#4a2b33' }}>
+          <div style={{ marginTop: 24, fontSize: cover ? 50 : 62, lineHeight: 1.35, color: '#4a2b33', wordBreak: 'keep-all' }}>
             {`《${princess.coverTitle}》`}
           </div>
         </div>
