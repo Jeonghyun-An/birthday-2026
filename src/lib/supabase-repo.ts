@@ -2,6 +2,8 @@ import 'server-only';
 import { createClient } from '@supabase/supabase-js';
 import type { Contribution, ContributionRepo, NewContribution } from './repo';
 
+const FETCH_TIMEOUT_MS = 5000;
+
 export function getRepo(): ContributionRepo {
   const url = process.env.SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -11,6 +13,9 @@ export function getRepo(): ContributionRepo {
 
   const db = createClient(url, key, {
     auth: { persistSession: false, autoRefreshToken: false },
+    global: {
+      fetch: (input, init) => fetch(input, { ...init, signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) }),
+    },
   });
 
   return {
