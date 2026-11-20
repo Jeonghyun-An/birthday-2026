@@ -18,18 +18,31 @@ export function AccountCopy({ number }: { number: string }) {
     };
   }, []);
 
+  function showCopied() {
+    setStatus('copied');
+    if (resetTimer.current !== null) window.clearTimeout(resetTimer.current);
+    resetTimer.current = window.setTimeout(() => setStatus('idle'), COPIED_RESET_MS);
+  }
+
   async function copy() {
     try {
       await navigator.clipboard.writeText(number);
-      setStatus('copied');
-      if (resetTimer.current !== null) window.clearTimeout(resetTimer.current);
-      resetTimer.current = window.setTimeout(() => setStatus('idle'), COPIED_RESET_MS);
+      showCopied();
+      return;
     } catch {
-      const element = numberRef.current;
-      const selection = window.getSelection();
-      if (element && selection) selection.selectAllChildren(element);
-      setStatus('fallback');
+      // 아래에서 선택 후 execCommand로 다시 시도
     }
+    const element = numberRef.current;
+    const selection = window.getSelection();
+    if (element && selection) selection.selectAllChildren(element);
+    let copied = false;
+    try {
+      copied = document.execCommand('copy');
+    } catch {
+      copied = false;
+    }
+    if (copied) showCopied();
+    else setStatus('fallback');
   }
 
   return (

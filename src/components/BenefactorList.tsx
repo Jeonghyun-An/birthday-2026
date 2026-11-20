@@ -16,7 +16,7 @@ export function BenefactorList({ items }: { items: Contribution[] }) {
             </span>{' '}
             {item.name}
           </p>
-          {item.message && <p className="mt-1 break-words text-sm text-ink-soft">{item.message}</p>}
+          {item.message && <p className="mt-1 whitespace-pre-line break-words text-sm text-ink-soft">{item.message}</p>}
         </li>
       ))}
     </ul>

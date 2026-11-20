@@ -37,6 +37,14 @@ describe('parseAmount', () => {
 });
 
 describe('validateGive', () => {
+  it('줄바꿈 CRLF를 LF 한 글자로 센다', () => {
+    const message = `${'가'.repeat(50)}\r\n${'나'.repeat(49)}`;
+    expect(validateGive(form({ message }))).toEqual({
+      kind: 'ok',
+      value: { name: '예준', message: `${'가'.repeat(50)}\n${'나'.repeat(49)}`, amount: 15000 },
+    });
+  });
+
   it('프리셋 금액이면 통과하고 빈 한마디는 null', () => {
     expect(validateGive(form())).toEqual({
       kind: 'ok',

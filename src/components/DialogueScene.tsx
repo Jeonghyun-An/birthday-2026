@@ -64,6 +64,7 @@ export function DialogueScene({ lines, onHelp, onListen, onSkip }: Props) {
               alt={princess.gift.name}
               width={600}
               height={600}
+              loading="eager"
               className="gift-pop absolute top-4 right-4 w-28 rounded-xl border-2 border-gold bg-white shadow-lg"
             />
           )}
@@ -89,7 +90,7 @@ export function DialogueScene({ lines, onHelp, onListen, onSkip }: Props) {
         )}
       </button>
       <p className="sr-only" aria-live="polite">
-        {`${script.dialogue.speaker}: ${line.text}`}
+        {state.typed === 0 ? '' : `${script.dialogue.speaker}: ${line.text}`}
       </p>
 
       {state.choosing ? (

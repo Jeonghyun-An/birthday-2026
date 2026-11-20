@@ -22,7 +22,7 @@ export function rawFromFormData(formData: FormData): RawGiveForm {
     message: text('message'),
     amountChoice: text('amountChoice'),
     customAmount: text('customAmount'),
-    website: text('website'),
+    website: text('hp_extra'),
   };
 }
 

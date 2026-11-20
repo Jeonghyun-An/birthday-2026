@@ -46,7 +46,7 @@ export function validateGive(raw: RawGiveForm): ValidationResult {
   if (name === '') errors.name = script.errors.nameRequired;
   else if (charCount(name) > NAME_MAX) errors.name = script.errors.nameTooLong;
 
-  const message = raw.message.trim();
+  const message = raw.message.replace(/\r\n?/g, '\n').trim();
   if (charCount(message) > MESSAGE_MAX) errors.message = script.errors.messageTooLong;
 
   const amount = parseAmount(raw.amountChoice === 'custom' ? raw.customAmount : raw.amountChoice);

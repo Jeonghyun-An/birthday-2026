@@ -89,6 +89,12 @@ describe('handleSubmit', () => {
 });
 
 describe('rawFromFormData', () => {
+  it('함정 칸은 hp_extra 필드에서 읽는다', () => {
+    const data = new FormData();
+    data.set('hp_extra', 'bot');
+    expect(rawFromFormData(data).website).toBe('bot');
+  });
+
   it('폼 값을 읽고 없는 필드는 빈 문자열로 채운다', () => {
     const data = new FormData();
     data.set('name', '예준');

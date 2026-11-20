@@ -125,8 +125,8 @@ export function GiveForm() {
 
       <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
         <label>
-          웹사이트
-          <input name="website" tabIndex={-1} autoComplete="off" defaultValue="" />
+          이 칸은 비워 두세요
+          <input name="hp_extra" tabIndex={-1} autoComplete="off" defaultValue="" />
         </label>
       </div>
 
