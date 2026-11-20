@@ -2661,7 +2661,7 @@ npm run dev
 7. 함정 칸 확인: 개발자 도구 콘솔에서 아래를 실행한 뒤 정상적으로 제출 → 완료 화면은 나오지만 Table Editor에 행이 생기지 않는다.
 
 ```js
-document.querySelector('input[name="website"]').value = 'bot';
+document.querySelector('input[name="hp_extra"]').value = 'bot';
 ```
 
 8. 목표 달성 연출 확인: `src/config/princess.ts`의 `goalAmount`를 잠시 `10000`으로 바꾸고 15,000원을 한 번 보탠다 → 감동 그림, "왕자님은 안 오셨지만…", 백마가 성 앞, `150%`. 확인 후 `goalAmount`를 원래대로 돌리고 테스트 행을 지운다.
@@ -2846,7 +2846,8 @@ git push -u origin main
 
 1. https://vercel.com → Add New → Project → GitHub의 `birthday-2026` 선택.
 2. Environment Variables에 `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`를 넣는다(Production, Preview 모두).
-3. Deploy. 끝나면 `https://<프로젝트>.vercel.app`이 생긴다.
+3. Project Settings → Functions → Function Region을 Seoul (icn1)으로 바꾼다. (DB와 같은 지역)
+4. Deploy. 끝나면 `https://<프로젝트>.vercel.app`이 생긴다.
 
 - [ ] **Step 6: 공개 전 체크리스트**
 
@@ -2855,3 +2856,4 @@ git push -u origin main
 3. 카카오톡 안에서 링크를 열어 `계좌번호 복사`와 `토스로 보내기`를 눌러 본다. 복사가 막히면 "길게 눌러 복사" 안내가 뜨는지 본다.
 4. Supabase Table Editor에서 테스트 행을 모두 지운다.
 5. `src/config/princess.ts`에 예시값(`○○은행`, `000-0000-0000`, `예금주`)이 남아 있지 않은지 확인한다.
+6. Supabase 무료 프로젝트는 일주일 넘게 쓰지 않으면 일시정지된다. 링크를 보내기 직전에 대시보드에서 활성 상태인지 확인한다.
