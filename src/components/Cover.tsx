@@ -11,7 +11,7 @@ export function Cover({ onStart }: { onStart: () => void }) {
           alt={`${princess.princessName} 표지`}
           width={800}
           height={1000}
-          priority
+          loading="eager"
           className="h-auto w-full"
         />
         <div className="absolute inset-x-0 top-0 bg-linear-to-b from-petal via-petal/80 to-transparent px-5 pt-6 pb-16 text-center">

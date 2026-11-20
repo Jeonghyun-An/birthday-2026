@@ -55,7 +55,7 @@ export function DialogueScene({ lines, onHelp, onListen, onSkip }: Props) {
             alt=""
             width={800}
             height={1000}
-            priority
+            loading="eager"
             className="h-auto w-full"
           />
           {line.showGift && (
@@ -70,22 +70,27 @@ export function DialogueScene({ lines, onHelp, onListen, onSkip }: Props) {
         </div>
 
         {!state.choosing && (
-          <div className="relative m-4 min-h-28 rounded-2xl border-2 border-gold bg-white px-4 pt-6 pb-4">
+          <div
+            aria-hidden="true"
+            className="relative m-4 min-h-28 rounded-2xl border-2 border-gold bg-white px-4 pt-6 pb-4"
+          >
             <span className="absolute -top-3 left-4 rounded-full bg-rose px-3 py-0.5 text-xs font-bold text-white">
               {script.dialogue.speaker}
             </span>
-            <p aria-hidden="true" className="text-lg leading-relaxed">
+            <p className="text-lg leading-relaxed">
               {visibleText(line.text, state.typed)}
             </p>
-            <p className="sr-only">{line.text}</p>
             {!typing && (
-              <span aria-hidden="true" className="absolute right-3 bottom-2 animate-bounce text-rose">
+              <span className="absolute right-3 bottom-2 animate-bounce text-rose">
                 ▼
               </span>
             )}
           </div>
         )}
       </button>
+      <p className="sr-only" aria-live="polite">
+        {`${script.dialogue.speaker}: ${line.text}`}
+      </p>
 
       {state.choosing ? (
         <div className="m-4 space-y-3">

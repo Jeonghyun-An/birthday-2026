@@ -41,7 +41,7 @@ export function GiveForm() {
           className="field"
         />
         {errors.name && (
-          <p id="name-error" className="field-error">
+          <p id="name-error" role="alert" className="field-error">
             {errors.name}
           </p>
         )}
@@ -63,13 +63,13 @@ export function GiveForm() {
           className="field resize-none"
         />
         {errors.message && (
-          <p id="message-error" className="field-error">
+          <p id="message-error" role="alert" className="field-error">
             {errors.message}
           </p>
         )}
       </div>
 
-      <fieldset>
+      <fieldset aria-describedby={errors.amount ? 'amount-error' : undefined}>
         <legend className="label">{script.give.amountLabel}</legend>
         <div className="space-y-2">
           {script.presets.map((preset) => {
@@ -110,11 +110,17 @@ export function GiveForm() {
               defaultValue={values?.customAmount ?? ''}
               placeholder={script.give.customAmountPlaceholder}
               aria-label={script.give.customAmountLabel}
+              aria-invalid={Boolean(errors.amount)}
+              aria-describedby={errors.amount ? 'amount-error' : undefined}
               className="field"
             />
           )}
         </div>
-        {errors.amount && <p className="field-error">{errors.amount}</p>}
+        {errors.amount && (
+          <p id="amount-error" role="alert" className="field-error">
+            {errors.amount}
+          </p>
+        )}
       </fieldset>
 
       <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">

@@ -19,6 +19,7 @@ export default function DonePage({ searchParams }: { searchParams: SearchParams 
           alt=""
           width={800}
           height={1000}
+          loading="eager"
           className="mx-auto w-40 rounded-xl"
         />
         <h1 className="mt-4 font-title text-2xl font-bold">{script.done.title}</h1>
