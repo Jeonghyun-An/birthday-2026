@@ -6,6 +6,7 @@ import { formatWon } from '@/lib/format';
 import { getProgress, sumAmounts } from '@/lib/progress';
 import type { Contribution } from '@/lib/repo';
 import { BenefactorList } from './BenefactorList';
+import { GiftTitleRotator } from './GiftTitleRotator';
 import { HorseProgress } from './HorseProgress';
 
 type Props = {
@@ -25,8 +26,10 @@ export function FundingSection({ contributions, dday }: Props) {
       </header>
 
       <div>
-        <h1 className="font-title text-2xl font-bold leading-snug">{princess.gift.name}</h1>
-        <p className="mt-2 text-ink-soft">“{script.funding.quote}”</p>
+        <GiftTitleRotator titles={script.funding.giftTitles} />
+        <p className="mt-2 text-xs text-ink-soft">
+          {script.funding.realNameLabel}: {princess.gift.name}
+        </p>
       </div>
 
       <Image
