@@ -102,6 +102,19 @@ body {
     border-color: var(--color-rose);
     background: var(--color-blush);
   }
+  .btn-royal:focus-visible,
+  .btn-ghost:focus-visible {
+    outline: 3px solid var(--color-rose-deep);
+    outline-offset: 3px;
+  }
+  .field:focus-visible {
+    outline: 2px solid var(--color-rose);
+    outline-offset: 2px;
+  }
+  .option:has(input:focus-visible) {
+    outline: 3px solid var(--color-rose-deep);
+    outline-offset: 2px;
+  }
   .notice {
     text-align: center;
     color: var(--color-ink-soft);
